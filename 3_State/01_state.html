@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+  const root = document.getElementById("root");
+  let counter = 0;
+
+  function countUp() {
+    counter = counter + 1;
+    // h3에 있는 counter를 증가시켜주기 위하여 render 다시 해주기
+    render();
+  }
+  function render() {
+    ReactDOM.render(<Container />, root);
+  }
+  const Container = () => (
+    <div>
+      <h3>Total clicks: {counter}</h3>
+      <button onClick={countUp}>Click me</button>
+    </div>
+  );
+
+  // HTML로 변환 
+  render();
+</script>
+
+</html>
